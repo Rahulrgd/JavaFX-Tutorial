@@ -30,13 +30,19 @@ public class App extends Application {
     button.setFont(Font.font("Roboto", FontWeight.BOLD, 18));
     // button.setRotate(90);
 
-    button.setOnAction(e -> System.out.println("Save button pressed!"));
+    // button.setOnAction(e -> System.out.println("Save button pressed!"));
+    // button.setOnAction(this::myHandler);
+    button.setOnAction(App::myHandler);
 
     root.setCenter(button);
 
     Scene scene = new Scene(root, 500, 500);
     stage.setScene(scene);
     stage.show();
+  }
+
+  public static void myHandler(ActionEvent e){
+    System.out.println("MyHandler Method called");
   }
 
   public static void main(String[] args) {
