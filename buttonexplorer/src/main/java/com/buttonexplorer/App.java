@@ -19,7 +19,7 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-public class App extends Application implements EventHandler<ActionEvent>{
+public class App extends Application{
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -30,7 +30,15 @@ public class App extends Application implements EventHandler<ActionEvent>{
         Button button = new Button("Sa_ve", iView);
         button.setFont(Font.font("Roboto", FontWeight.BOLD, 18));
         // button.setRotate(90);
-        button.setOnAction(this);
+
+        button.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent arg0) {
+                System.out.println("Save button pressed!");
+            }
+            
+        });
 
 
         root.setCenter(button);
@@ -42,11 +50,6 @@ public class App extends Application implements EventHandler<ActionEvent>{
 
     public static void main(String[] args) {
         launch();
-    }
-
-    @Override
-    public void handle(ActionEvent arg0) {
-        System.out.println("Save button prassed");
     }
 
 }
