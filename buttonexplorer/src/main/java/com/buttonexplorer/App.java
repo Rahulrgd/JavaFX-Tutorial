@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -20,19 +21,28 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+  Label label = new Label("Nothing to show yet!");
+  int Click_Count = 0;
+  Button button = new Button("Sa_ve");
+
   @Override
   public void start(Stage stage) throws IOException {
     BorderPane root = new BorderPane();
 
     Image image = new Image(getClass().getResourceAsStream("icon.png"));
     ImageView iView = new ImageView(image);
-    Button button = new Button("Sa_ve", iView);
     button.setFont(Font.font("Roboto", FontWeight.BOLD, 18));
+
+    root.setBottom(label);
     // button.setRotate(90);
 
     // button.setOnAction(e -> System.out.println("Save button pressed!"));
     // button.setOnAction(this::myHandler);
-    button.setOnAction(App::myHandler);
+    // button.setOnAction(this::myHandler);
+    button.setOnAction(e->{
+        Click_Count++;
+        label.setText("Button clicked: " + Click_Count + " times");
+    });
 
     root.setCenter(button);
 
@@ -41,8 +51,9 @@ public class App extends Application {
     stage.show();
   }
 
-  public static void myHandler(ActionEvent e){
-    System.out.println("MyHandler Method called");
+  public void myHandler(ActionEvent e) {
+    Click_Count++;
+    label.setText("Button Clicked: " + Click_Count + " times");
   }
 
   public static void main(String[] args) {
