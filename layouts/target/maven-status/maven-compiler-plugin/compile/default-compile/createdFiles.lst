@@ -1,0 +1,5 @@
+com\layoutmanagerexplorer\App.class
+module-info.class
+com\layoutmanagerexplorer\SecondaryController.class
+com\layoutmanagerexplorer\PrimaryController.class
+com\layoutmanagerexplorer\FlowPaneExample.class
